@@ -5,12 +5,26 @@ import {
   Select,
   Toolbar,
 } from "@material-ui/core";
-import { createTheme, ThemeProvider } from "@material-ui/core/styles";
+import {
+  createTheme,
+  ThemeProvider,
+  makeStyles,
+} from "@material-ui/core/styles";
 import logo from "../img/logo.png";
 import { CryptoContext } from "../context/CryptoState";
 import AuthModal from "./auth/AuthModal";
 import { Link } from "react-router-dom";
 import UserSidebar from "./auth/UserSidebar";
+
+const useStyles = makeStyles((theme) => ({
+  logo: {
+    width: "100px",
+    cursor: "pointer",
+    [theme.breakpoints.down("md")]: {
+      width: "100px",
+    },
+  },
+}));
 
 const darkTheme = createTheme({
   palette: {
@@ -22,6 +36,7 @@ const darkTheme = createTheme({
 });
 
 function Header() {
+  const classes = useStyles();
   const { currency, setCurrency, user } = CryptoContext();
 
   return (
@@ -36,11 +51,7 @@ function Header() {
             }}
           >
             <Link to="/">
-              <img
-                src={logo}
-                alt="logo"
-                style={{ width: "150px", cursor: "pointer" }}
-              />
+              <img className={classes.logo} src={logo} alt="logo" />
             </Link>
 
             {/* <Button color="inherit">Login</Button> */}

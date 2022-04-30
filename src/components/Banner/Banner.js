@@ -5,7 +5,6 @@ const useStyles = makeStyles((theme) => ({
   banner: {
     backgroundImage:
       "linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(./banner.jpg)",
-    backgroundSize: "cover",
     backgroundPosition: "center",
   },
   bannerContent: {
@@ -21,11 +20,6 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     justifyContent: "center",
     textAlign: "center",
-  },
-  carousel: {
-    height: "50%",
-    display: "flex",
-    alignItems: "center",
   },
 }));
 
