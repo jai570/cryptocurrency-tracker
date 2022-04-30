@@ -53,23 +53,6 @@ export default function AuthModal() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  const signInWithGoogle = async () => {
-    const googleProvider = await new GoogleAuthProvider();
-    const res = await signInWithPopup(auth, googleProvider);
-    try {
-      setalert({
-        open: true,
-        msg: `Successfully Login With ${res.user.email}`,
-        type: "success",
-      });
-    } catch (error) {
-      setalert({
-        open: true,
-        msg: error.message,
-        type: "error",
-      });
-    }
-  };
 
   return (
     <div>
@@ -105,13 +88,7 @@ export default function AuthModal() {
             </AppBar>
             {value === 0 && <Login handleClose={handleClose} />}
             {value === 1 && <SignUp handleClose={handleClose} />}
-            <Box className={classes.google}>
-              <span>OR</span>
-              <GoogleButton
-                style={{ width: "100%", outline: "none" }}
-                onClick={signInWithGoogle}
-              />
-            </Box>
+            <Box className={classes.google}></Box>
           </div>
         </Fade>
       </Modal>
