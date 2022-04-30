@@ -54,7 +54,7 @@ export default function AuthModal() {
     setValue(newValue);
   };
   const signInWithGoogle = async () => {
-    const googleProvider = new GoogleAuthProvider();
+    const googleProvider = await new GoogleAuthProvider();
     const res = await signInWithPopup(auth, googleProvider);
     try {
       setalert({
