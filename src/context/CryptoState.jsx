@@ -3,8 +3,7 @@ import { useContext, createContext } from "react";
 import axios from "axios";
 import { CoinList } from "../config/api";
 import { onAuthStateChanged } from "firebase/auth";
-import { auth, db } from "../Firebase";
-import { doc, onSnapshot } from "firebase/firestore";
+import { auth } from "../Firebase";
 
 const Crypto = createContext();
 const CryptoState = ({ children }) => {
@@ -13,7 +12,6 @@ const CryptoState = ({ children }) => {
   const [coins, setcoins] = useState([]);
   const [loading, setloading] = useState(false);
   const [user, setuser] = useState([]);
-  const [watchlist, setwatchlist] = useState([]);
   const [alert, setalert] = useState({
     open: false,
     msg: "",
@@ -23,7 +21,6 @@ const CryptoState = ({ children }) => {
     onAuthStateChanged(auth, (user) => {
       if (user) setuser(user);
       else setuser(null);
-      console.log(user);
     });
   }, []);
   const fetchCoins = async () => {
@@ -67,7 +64,6 @@ const CryptoState = ({ children }) => {
         setalert,
         setuser,
         user,
-        watchlist,
       }}
     >
       {children}

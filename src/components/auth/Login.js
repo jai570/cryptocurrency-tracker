@@ -20,7 +20,7 @@ const Login = ({ handleClose }) => {
     }
     try {
       const result = await signInWithEmailAndPassword(auth, email, password);
-      console.log(result);
+
       setalert({
         open: true,
         msg: `Login successful. Welcome ${result.user.email}`,

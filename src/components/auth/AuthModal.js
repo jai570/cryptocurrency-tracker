@@ -6,11 +6,9 @@ import Fade from "@material-ui/core/Fade";
 import { AppBar, Box, Button, Tab, Tabs } from "@material-ui/core";
 import { CryptoContext } from "../../context/CryptoState";
 import { TabPanel } from "@material-ui/lab";
-import { auth } from "../../Firebase";
+
 import Login from "./Login";
 import SignUp from "./SignUp";
-import GoogleButton from "react-google-button";
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -40,7 +38,6 @@ export default function AuthModal() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState(0);
-  const { setalert } = CryptoContext();
 
   const handleOpen = () => {
     setOpen(true);
