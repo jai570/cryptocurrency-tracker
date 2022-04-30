@@ -18,10 +18,10 @@ import UserSidebar from "./auth/UserSidebar";
 
 const useStyles = makeStyles((theme) => ({
   logo: {
-    width: "100px",
+    width: "90px",
     cursor: "pointer",
     [theme.breakpoints.down("md")]: {
-      width: "100px",
+      width: "90px",
     },
   },
 }));
